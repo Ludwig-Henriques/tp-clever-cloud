@@ -1,12 +1,17 @@
 <template>
   <div class="total">
-    Total
+    <p>Total: {{(total * 41.904).toFixed(2)}}€</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  data() {
+    return {
+      total: 60.15
+    }
+  },
 }
 </script>
 
@@ -14,8 +19,17 @@ export default {
 <style scoped>
 
 .total{
-  background-color: orange;
+  background-color:#ddd;
   grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.total p {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
 }
 
 </style>
