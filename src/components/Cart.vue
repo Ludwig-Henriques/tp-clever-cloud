@@ -1,6 +1,6 @@
 <template>
   <div class="cart">
-    <Item v-for="item in items" :key="item.nameVariant+item.nameFlavor" :nameVariant="item.nameVariant" :nameFlavor="item.nameFlavor" :price="item.price" />
+    <Item v-for="item in items" :key="item.nameVariant+item.nameFlavor" :item="item" />
   </div>
 </template>
 
@@ -12,22 +12,11 @@ export default {
   components: {
     Item
   },
-  data() {
-    return{
-      items: [
-        {
-          nameVariant: "Docker",
-          nameFlavor: "nano",
-          price: "16"
-        },
-        {
-          nameVariant: "PHP",
-          nameFlavor: "nano",
-          price: "10"
-        }
-      ]
+  computed: {
+    items () {
+      return this.$store.state.items
     }
-  }
+  },
 }
 </script>
 
@@ -35,7 +24,7 @@ export default {
 <style scoped>
 
 .cart {
-  background-color: green;
+  background-color: #d0d0db;
   overflow-y: scroll;
 }
 

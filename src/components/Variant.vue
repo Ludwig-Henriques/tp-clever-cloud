@@ -2,7 +2,7 @@
   <div class="variant">
     <img :src="logo" >
     <span>{{name}}</span>
-    <button>Select</button>
+    <button @click="selectVariant(variant)">Select</button>
   </div>
 </template>
 
@@ -10,8 +10,20 @@
 export default {
   name: 'Variant',
   props: {
-    name: String,
-    logo: String
+    variant: Object,
+  },
+  computed: {
+    logo () {
+      return this.variant.variant.logo
+    },
+    name () {
+      return this.variant.name
+    }
+  },
+  methods: {
+    selectVariant (value) {
+      this.$store.dispatch('updateVariantSelected', value)
+    }
   }
 }
 </script>

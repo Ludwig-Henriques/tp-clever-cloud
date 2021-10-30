@@ -1,10 +1,10 @@
 <template>
   <div class="flavor">
-    <span>{{size}}</span>
+    <span>{{name}}</span>
     <span>CPUs: {{cpus}}</span>
     <span>GPUs: {{gpus}}</span>
-    <span>RAM: {{ram}}</span>
-    <button>Select</button>
+    <span>RAM: {{mem}}</span>
+    <button @click="selectFlavor">Select</button>
   </div>
 </template>
 
@@ -12,10 +12,31 @@
 export default {
   name: 'Flavor',
   props: {
-    size: String,
-    cpus: String,
-    gpus: String,
-    ram: String
+    flavor: Object
+  },
+  computed: {
+    name () {
+      return this.flavor.name
+    },
+    cpus () {
+      return this.flavor.cpus
+    },
+    gpus () {
+      return this.flavor.gpus
+    },
+    mem () {
+      return this.flavor.mem
+    }
+  },
+  methods: {
+    selectFlavor() {
+      let item = {
+        nameVariant: this.$store.state.variantSelected.name,
+        nameFlavor: this.name,
+        price: this.flavor.price
+      }
+      this.$store.dispatch('addItem', item)
+    }
   }
 }
 </script>

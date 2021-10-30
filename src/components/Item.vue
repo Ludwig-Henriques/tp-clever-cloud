@@ -2,8 +2,8 @@
   <div class="item">
     <span>{{nameVariant}}</span>
     <span>{{nameFlavor}}</span>
-    <span>{{price}}</span>
-    <button>Remove</button>
+    <span>{{(price * 41.904).toFixed(2)}} €</span>
+    <button @click="removeItem()">Remove</button>
   </div>
 </template>
 
@@ -11,9 +11,23 @@
 export default {
   name: 'Item',
   props: {
-    nameVariant: String,
-    nameFlavor: String,
-    price: String,
+    item: Object,
+  },
+  computed: {
+    nameVariant () {
+      return this.item.nameVariant
+    },
+    nameFlavor () {
+      return this.item.nameFlavor
+    },
+    price () {
+      return this.item.price
+    },
+  },
+  methods: {
+    removeItem() {
+      this.$store.dispatch('removeItem', this.item)
+    }
   }
 }
 </script>
