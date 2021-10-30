@@ -1,25 +1,27 @@
 <template>
   <div id="app">
-      <div class="total">Total</div>
-      <div class="variants">Variants
-      </div>
-      <div class="flavors">
-        Flavors
-      </div>
-      <div class="cart">
-        Cart
-      </div>
+      <Total />
+      <Variants />
+      <Flavors />
+      <Cart />
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import Total from './components/Total.vue'
+import Variants from './components/Variants.vue'
+import Flavors from './components/Flavors.vue'
+import Cart from './components/Cart.vue'
 
 export default {
   name: 'App',
-  // components: {
-  //   HelloWorld
-  // }
+  components: {
+    Total,
+    Variants,
+    Flavors,
+    Cart
+  }
 }
 </script>
 
@@ -43,21 +45,4 @@ body {
   padding: 20px;
 }
 
-.total{
-  background-color: orange;
-  grid-column: 1 / -1;
-}
-
-.variants {
-  background-color: blue;
-  overflow-y: scroll;
-}
-.flavors {
-  background-color: red;
-  overflow-y: scroll;
-}
-.cart {
-  background-color: green;
-  overflow-y: scroll;
-}
 </style>
