@@ -38,8 +38,8 @@ body {
   color: #2c3e50;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-template-rows: 80px 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  grid-template-rows: 80px minmax(calc(33% - 45px), 1fr);
   grid-gap: 20px;
   box-sizing: border-box;
   padding: 20px;
