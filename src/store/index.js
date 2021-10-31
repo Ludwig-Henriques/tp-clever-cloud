@@ -28,6 +28,9 @@ const mutations = {
   updateTotal (state, value) {
       state.total = value
   },
+  removeAllItem (state) {
+      state.items = []
+  },
 }
 
 const actions = {
@@ -51,6 +54,10 @@ const actions = {
       amount = amount + element.price
     });
     commit('updateTotal', amount)
+  },
+  removeAllItem ({ commit, dispatch }) {
+    commit('removeAllItem')
+    dispatch('updateTotal')
   },
 }
 

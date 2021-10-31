@@ -48,7 +48,7 @@ export default {
   cursor: pointer;
 }
 
-.variant.active {
+.variant.active, .variant:hover {
   border-color: #c49090
 }
 
