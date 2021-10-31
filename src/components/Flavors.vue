@@ -1,5 +1,7 @@
 <template>
   <div class="flavors">
+    <h2>Flavors</h2>
+    <p>Add the flavor to the cart</p>
     <Flavor v-for="flavor in flavors" :key="flavor.name" :flavor="flavor" />
   </div>
 </template>
@@ -27,6 +29,14 @@ export default {
 .flavors {
   background-color: #d0d5d0;
   overflow-y: scroll;
+}
+
+.flavors h2, .flavors p {
+  margin: 5px 0;
+}
+
+.flavors h2 {
+  text-transform: uppercase;
 }
 
 </style>

@@ -1,11 +1,12 @@
 <template>
-  <div class="flavor">
-    <span>{{name}}</span>
-    <span>CPUs: {{cpus}}</span>
-    <span>GPUs: {{gpus}}</span>
-    <span>RAM: {{mem}}</span>
-    <button @click="selectFlavor">Select</button>
-  </div>
+  <button @click="selectFlavor" class="flavor">
+    <span class="flavor-name">{{name}}</span>
+    <p><span>CPUs:</span><span>{{cpus}}</span></p>
+    <p><span>GPUs:</span><span>{{gpus}}</span></p>
+    <p><span>RAM:</span><span>{{mem}}</span></p>
+    <p class="flavor-price"><span>{{(price * 41.904).toFixed(2)}} €</span></p>
+    <button>Add to cart</button>
+  </button>
 </template>
 
 <script>
@@ -26,6 +27,9 @@ export default {
     },
     mem () {
       return this.flavor.mem
+    },
+    price () {
+      return this.flavor.price
     }
   },
   methods: {
@@ -46,18 +50,66 @@ export default {
 
 .flavor {
   display: flex;
+  width: calc(100% - 20px);
   justify-content: start;
   align-items: center;
-  padding: 10px;
   min-height: 50px;
+  padding: 0 10px 0 0;
+  margin: 10px;
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.flavor span {
-  margin-left: 10px;
+.flavor:hover {
+  border-color: #6f916f;
+}
+
+.flavor-name {
+  height: 70px;
+  width: 50px;
+  line-height: 70px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin: -2px 10px -2px -2px;
+  background-color: #6f916f;
+  color: #fff;
+  font-weight: bold;
+}
+
+.flavor-price {
+  margin: 0 10px 0 auto !important;
+  color: #6f916f;
+  font-weight: bold;
+}
+
+.flavor p {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.flavor p span:first-child {
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .flavor button {
-  margin-left: auto;
+  padding: 10px 20px;
+  border: none;
+  background-color: #d0d5d0;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.flavor button:hover {
+  background-color: #6f916f;
+  color: #fff;
 }
 
 </style>
