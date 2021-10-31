@@ -1,6 +1,7 @@
 <template>
   <div class="total">
-    <p>Total: {{(total * 41.904).toFixed(2)}}€</p>
+    <p>Total : </p>
+    <p>{{(total * 41.904).toFixed(2)}} €</p>
   </div>
 </template>
 
@@ -23,13 +24,23 @@ export default {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  border: 3px solid #ddd;
 }
 
 .total p {
   font-size: 2rem;
   font-weight: 700;
   color: #000;
+}
+
+.total p:first-child {
+  padding: 0 20px;
+}
+
+.total p:last-child {
+  flex-grow: 1;
+  background: #fff;
 }
 
 </style>
