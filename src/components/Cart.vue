@@ -1,7 +1,7 @@
 <template>
   <div class="cart">
     <h2>Shopping Cart</h2>
-    <p @click="removeAllItem">Remove all item</p>
+    <p v-if="items.length > 0" @click="removeAllItem">Remove all item</p>
     <Item v-for="item in items" :key="item.nameVariant+item.nameFlavor" :item="item" />
   </div>
 </template>
