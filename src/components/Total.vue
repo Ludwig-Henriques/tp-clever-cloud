@@ -7,9 +7,9 @@
 <script>
 export default {
   name: 'Total',
-  data() {
-    return {
-      total: 60.15
+  computed: {
+    total () {
+      return this.$store.state.total
     }
   },
 }

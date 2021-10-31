@@ -9,7 +9,7 @@ const state = {
   variants: [],
   variantSelected: {},
   items: [],
-
+  total: 0,
 }
 
 const mutations = {
@@ -25,6 +25,9 @@ const mutations = {
   removeItem (state, item) {
     state.items.splice(state.items.indexOf(item), 1)
   },
+  updateTotal (state, value) {
+      state.total = value
+  },
 }
 
 const actions = {
@@ -34,11 +37,20 @@ const actions = {
   updateVariantSelected ({ commit }, variant) {
     commit('updateVariantSelected', variant)
   },
-  addItem ({ commit }, item) {
+  addItem ({ commit, dispatch }, item) {
     commit('addItem', item)
+    dispatch('updateTotal')
   },
-  removeItem ({ commit }, item) {
+  removeItem ({ commit, dispatch }, item) {
     commit('removeItem', item)
+    dispatch('updateTotal')
+  },
+  updateTotal ({ commit, state }) {
+    let amount = 0
+    state.items.forEach(element => {
+      amount = amount + element.price
+    });
+    commit('updateTotal', amount)
   },
 }
 
