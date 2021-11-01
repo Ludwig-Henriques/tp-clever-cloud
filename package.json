@@ -2,16 +2,19 @@
   "name": "tp-clever-cloud",
   "version": "0.1.0",
   "private": true,
-  "main" : "tp-clever-cloud.js",
+  "main": "tp-clever-cloud.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start" : "node tp-clever-cloud.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "vue": "^2.6.11",
     "vuex": "^3.6.2"
   },
