@@ -33,6 +33,7 @@ export default {
 .cart {
   background-color: #d0d0db;
   overflow-y: scroll;
+  border: 2px solid #d0d0db;
 }
 
 .cart h2, .cart p {

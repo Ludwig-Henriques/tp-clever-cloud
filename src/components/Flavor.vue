@@ -1,11 +1,18 @@
 <template>
   <button @click="selectFlavor" class="flavor">
-    <span class="flavor-name">{{name}}</span>
-    <p><span>CPUs:</span><span>{{cpus}}</span></p>
-    <p><span>GPUs:</span><span>{{gpus}}</span></p>
-    <p><span>RAM:</span><span>{{mem}}</span></p>
-    <p class="flavor-price"><span>{{(price * 41.904).toFixed(2)}} €</span></p>
-    <button>Add to cart</button>
+    <div class="flavor-name">
+      <span>{{name}}</span>
+      <span class="flavor-price">{{(price * 41.904).toFixed(2)}} €</span>
+    </div>
+    <div class="flavor-content">
+      <div class="flavor-content-configuration">
+        <p><span>CPUs:</span><span>{{cpus}}</span></p>
+        <p><span>GPUs:</span><span>{{gpus}}</span></p>
+        <p><span>RAM:</span><span>{{mem}}</span></p>
+      </div>
+      
+      <button>Add to cart</button>
+    </div>
   </button>
 </template>
 
@@ -52,7 +59,7 @@ export default {
   display: flex;
   width: calc(100% - 20px);
   justify-content: start;
-  align-items: center;
+  align-items: stretch;
   min-height: 50px;
   padding: 0 10px 0 0;
   margin: 10px;
@@ -68,43 +75,60 @@ export default {
 
 .flavor-name {
   height: 70px;
-  width: 50px;
-  line-height: 70px;
+  width: 70px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   margin: -2px 10px -2px -2px;
   background-color: #6f916f;
   color: #fff;
   font-weight: bold;
-}
-
-.flavor-price {
-  margin: 0 10px 0 auto !important;
-  color: #6f916f;
-  font-weight: bold;
-}
-
-.flavor p {
-  margin: 0 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
+  justify-content: space-around;
+  align-items: center
 }
 
-.flavor p span:first-child {
+.flavor-price { 
+  font-weight: bold;
+}
+
+.flavor-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.flavor-content-configuration{
+  display: flex;
+  align-self: stretch;
+}
+
+.flavor-content-configuration p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 15px;
+  flex-grow: 1;
+}
+
+.flavor-content-configuration p span:first-child {
   font-size: 12px;
   font-weight: bold;
+  margin-right: 3px;
 }
 
 .flavor button {
-  padding: 10px 20px;
+  padding: 5px 15px;
   border: none;
   background-color: #d0d5d0;
   border-radius: 3px;
   cursor: pointer;
   text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 .flavor button:hover {

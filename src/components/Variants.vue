@@ -29,6 +29,7 @@ export default {
 .variants {
   background-color: #dbd0d0;
   overflow-y: scroll;
+  border: 2px solid #dbd0d0
 }
 
 .variants h2, .variants p {

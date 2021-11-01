@@ -38,11 +38,11 @@ body {
   color: #2c3e50;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 50px minmax(calc(33% - 45px), 1fr);
-  grid-gap: 20px;
+  grid-gap: 10px;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 10px;
 }
 
 </style>

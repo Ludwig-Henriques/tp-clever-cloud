@@ -1,9 +1,12 @@
 <template>
   <button @click="selectVariant(variant)" class="variant" :class="{active: variant==variantSelected}">
     <img :src="logo" >
-    <span>{{name}}</span>
-    <button v-if="variant==variantSelected" @click="selectVariant(variant)">Selected</button>
-    <button v-else @click="selectVariant(variant)">Select</button>
+    <div class="variant-content">
+      <span>{{name}}</span>
+      <button v-if="variant==variantSelected" @click="selectVariant(variant)">Selected</button>
+      <button v-else @click="selectVariant(variant)">Select</button>
+    </div>
+    
   </button>
 </template>
 
@@ -39,7 +42,7 @@ export default {
   display: flex;
   width: calc(100% - 20px);
   justify-content: start;
-  align-items: center;
+  align-items: stretch;
   padding: 0 10px 0 0;
   margin: 10px;
   background-color: #fff;
@@ -52,8 +55,16 @@ export default {
   border-color: #c49090
 }
 
+.variant-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+}
+
 .variant span {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .variant img {
@@ -64,16 +75,16 @@ export default {
 }
 
 .variant button {
-  margin-left: auto;
-  padding: 10px 20px;
+  padding: 5px 15px;
   border: none;
   background-color: #dbd0d0;
   border-radius: 3px;
   cursor: pointer;
   text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
-.variant.active button {
+.variant.active button, .variant button:hover {
   background-color: #c49090;
   color: #fff;
 }

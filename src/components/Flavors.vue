@@ -29,6 +29,7 @@ export default {
 .flavors {
   background-color: #d0d5d0;
   overflow-y: scroll;
+  border: 2px solid #d0d5d0;
 }
 
 .flavors h2, .flavors p {
